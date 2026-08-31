@@ -9,4 +9,5 @@ interface ProductRepository {
     fun getProductsPaged(category: String? = null): Flow<PagingData<Product>>
     suspend fun getCategories(): Result<List<Category>>
     suspend fun getProductById(id: Int): Result<Product>
+    suspend fun getProducts(limit: Int): Result<List<Product>>
 }

@@ -1,10 +1,13 @@
 package com.example.designsystem.components
 
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -25,22 +28,29 @@ import com.example.designsystem.theme.color.onSurfaceVariant
 fun BottomNavBar(
     selectedRoute: String,
     onHomeClick: () -> Unit,
-    onWishlistClick: () -> Unit
+    onWishlistClick: () -> Unit,
+    modifier: Modifier = Modifier
 ) {
     Surface(
-        modifier = Modifier,
+        modifier = modifier.fillMaxWidth(),
         shape = RoundedCornerShape(24.dp),
         color = MaterialTheme.colorScheme.surface,
         shadowElevation = 4.dp
     ) {
-        Row(modifier = Modifier.padding(horizontal = 20.dp, vertical = 10.dp)) {
+        Row(
+            modifier = Modifier
+                .padding(horizontal = 20.dp, vertical = 10.dp)
+                .fillMaxWidth(),
+            horizontalArrangement = Arrangement.Center,
+            verticalAlignment = Alignment.CenterVertically
+        ) {
             NavItem(
                 icon = Icons.Filled.Home,
                 label = "Home",
                 isSelected = selectedRoute == "home",
                 onClick = onHomeClick
             )
-            Spacer(modifier = Modifier.padding(horizontal = 16.dp))
+            Spacer(modifier = Modifier.width(64.dp))
             NavItem(
                 icon = Icons.Filled.Favorite,
                 label = "Wishlist",

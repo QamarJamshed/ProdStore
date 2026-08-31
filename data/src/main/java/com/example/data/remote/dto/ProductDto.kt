@@ -32,6 +32,7 @@ fun ProductDto.toDomain(isWishlisted: Boolean= false): Product {
         brand = brand ?: "Unknown",
         category = category,
         thumbnail = thumbnail,
-        images = images
+        images = images,
+        isWishlisted = isWishlisted
     )
 }

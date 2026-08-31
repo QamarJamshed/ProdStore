@@ -1,6 +1,5 @@
 package com.example.designsystem.components
 
-import android.R
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -17,6 +16,7 @@ import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.outlined.FavoriteBorder
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -64,16 +64,19 @@ fun ProductCard(
                             RoundedCornerShape(8.dp)
                         )
                 )
-                Icon(
-                    imageVector = HeartIcon(isWishlisted),
-                    contentDescription = if (isWishlisted) "Remove from Wishlist" else "Add to Wishlist",
-                    tint = if (isWishlisted) HeartRed else onSurfaceVariant,
+                IconButton(
+                    onClick = onWishlistClick,
                     modifier = Modifier
                         .align(Alignment.TopEnd)
-                        .padding(18.dp)
-                        .size(6.dp)
-                        .clickable(onClick = onWishlistClick)
-                )
+                        .padding(4.dp)
+                ) {
+                    Icon(
+                        imageVector = HeartIcon(isWishlisted),
+                        contentDescription = if (isWishlisted) "Remove from Wishlist" else "Add to Wishlist",
+                        tint = if (isWishlisted) HeartRed else onSurfaceVariant,
+                        modifier = Modifier.size(24.dp)
+                    )
+                }
             }
             Row(
                 modifier = Modifier

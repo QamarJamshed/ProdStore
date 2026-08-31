@@ -3,7 +3,6 @@ package com.example.data.repository
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
-import androidx.paging.map
 import com.example.data.remote.api.ProductApiService
 import com.example.data.remote.dto.toDomain
 import com.example.data.remote.paging.ProductPagingSource
@@ -25,12 +24,8 @@ class ProductRepositoryImpl(
                 enablePlaceholders = false
             ),
 
-            pagingSourceFactory = { ProductPagingSource(api, category) }
-        ).flow.map { pagingData ->
-            pagingData.map { product ->
-                product.copy(isWishlisted = wishlistDao.isWishlisted(product.id))
-            }
-        }
+            pagingSourceFactory = { ProductPagingSource(api, wishlistDao, category) }
+        ).flow
     }
 
     override suspend fun getCategories(): Result<List<Category>> {
@@ -47,6 +42,16 @@ class ProductRepositoryImpl(
             val isWishlisted = wishlistDao.isWishlisted(id)
             val product = api.getProductById(id).toDomain(isWishlisted)
             Result.success(product)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+
+    override suspend fun getProducts(limit: Int): Result<List<Product>> {
+        return try {
+            val response = api.getProducts(limit = limit, skip = 0)
+            val products = response.products.map { it.toDomain() }
+            Result.success(products)
         } catch (e: Exception) {
             Result.failure(e)
         }

@@ -4,10 +4,12 @@ import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.example.data.remote.api.ProductApiService
 import com.example.data.remote.dto.toDomain
+import com.example.database.dao.WishListDao
 import com.example.domain.model.Product
 
 class ProductPagingSource(
     private  val api: ProductApiService,
+    private val wishlistDao: WishListDao,
     private val category: String?
 ): PagingSource<Int, Product>() {
 
@@ -22,7 +24,9 @@ class ProductPagingSource(
                 api.getProductsByCategory(category = category, limit = limit, skip = skip)
             }
 
-            val products = response.product.map { it.toDomain() }
+            val products = response.products.map { 
+                it.toDomain(isWishlisted = wishlistDao.isWishlisted(it.id))
+            }
 
             LoadResult.Page(
                 data = products,

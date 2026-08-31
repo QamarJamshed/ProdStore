@@ -25,6 +25,6 @@ val AppTypography = Typography(
     ),
     labelSmall = TextStyle(
         fontWeight = FontWeight.Medium,
-        fontSize = 9.sp
+        fontSize = 11.sp
     )
 )

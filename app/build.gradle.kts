@@ -11,7 +11,7 @@ android {
     defaultConfig {
         applicationId = "com.example.ecommerceapp"
         minSdk = 24
-        targetSdk = 36
+        targetSdk = 37
         versionCode = 1
         versionName = "1.0"
 
@@ -50,10 +50,22 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
     debugImplementation(libs.androidx.compose.ui.tooling)
-    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.navigation3.runtime)
+    implementation(libs.androidx.navigation3.ui)
+    implementation(libs.androidx.lifecycle.viewmodel.navigation3)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.koin.android)
     implementation(libs.koin.compose)
     implementation(libs.kotlinx.serialization.json)
+
+    implementation(project(":feature:onboarding:onboarding-impl"))
+    implementation(project(":feature:onboarding:onboarding-api"))
+    implementation(project(":feature:home:home-impl"))
+    implementation(project(":feature:home:home-api"))
+    implementation(project(":feature:productdetails:productdetails-impl"))
+    implementation(project(":feature:productdetails:productdetails-api"))
+    implementation(project(":feature:wishlist:wishlist-impl"))
+    implementation(project(":feature:wishlist:wishlist-api"))
 
     implementation(project(":core:common"))
     implementation(project(":core:designsystem"))
