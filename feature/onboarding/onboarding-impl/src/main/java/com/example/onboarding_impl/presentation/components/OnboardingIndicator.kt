@@ -1,4 +1,4 @@
-package com.example.onboarding_impl.presentation.components
+ package com.example.onboarding_impl.presentation.components
 
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.foundation.background

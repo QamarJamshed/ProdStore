@@ -21,11 +21,10 @@ import coil3.compose.AsyncImage
 fun OnboardingPage(
     title: String,
     description: String,
-    imageUrl: String,
-    modifier: Modifier = Modifier
+    imageUrl: String
 ) {
     Column(
-        modifier = modifier
+        modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 32.dp),
         horizontalAlignment = Alignment.CenterHorizontally

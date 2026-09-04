@@ -40,8 +40,7 @@ dependencies {
     implementation(libs.androidx.navigation3.runtime)
     implementation(libs.androidx.navigation3.ui)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
-//    implementation(libs.koin.android)
-//    implementation(libs.koin.compose)
+
     implementation(libs.koin.compose)
     implementation(libs.koin.compose.navigation3)
     implementation(libs.androidx.lifecycle.viewmodel.navigation3)

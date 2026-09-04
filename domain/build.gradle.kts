@@ -14,6 +14,5 @@ kotlin {
 dependencies {
     api(libs.kotlinx.coroutines.core)
     api(libs.androidx.paging.common)
-    implementation(project(":core:common"))
 
 }

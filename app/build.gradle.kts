@@ -67,7 +67,6 @@ dependencies {
     implementation(project(":feature:wishlist:wishlist-impl"))
     implementation(project(":feature:wishlist:wishlist-api"))
 
-    implementation(project(":core:common"))
     implementation(project(":core:designsystem"))
     implementation(project(":core:network"))
     implementation(project(":core:database"))

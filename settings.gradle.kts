@@ -24,7 +24,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "EcommerceApp"
 include(":app")
-include(":core:common")
 include(":core:designsystem")
 include(":core:network")
 include(":core:database")
@@ -38,3 +37,4 @@ include(":feature:productdetails:productdetails-api")
 include(":feature:productdetails:productdetails-impl")
 include(":feature:wishlist:wishlist-api")
 include(":feature:wishlist:wishlist-impl")
+

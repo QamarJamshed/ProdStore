@@ -29,7 +29,6 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
 
     implementation(project(":domain"))
-    implementation(project(":core:common"))
     implementation(project(":core:database"))
 
     implementation(libs.retrofit.core)
